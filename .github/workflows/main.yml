@@ -15,11 +15,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Test output
+        id: tests
+        run: >-
+          echo "::set-output name=TEST::$(
+            echo "hello"
+          )"
       - name: wa-notify
-        uses: mdb571/wa-action@master
+        uses: lassebenni/wa-action@master
         with:
           from: ${{ secrets.FROM }}
           to: ${{secrets.TO }}
+          message: "${{ steps.tets.outputs.TEST }}"
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH }}
