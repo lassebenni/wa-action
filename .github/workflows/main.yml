@@ -16,9 +16,9 @@ jobs:
       - name: wa-notify
         uses: lassebenni/wa-action@master
         with:
-          from: ${{ secrets.FROM }}
-          to: ${{secrets.TO }}
-          message: "${{ steps.tets.outputs.TEST }}"
+          from: ${{ secrets.NUMBER_FROM }}
+          to: ${{secrets.NUMBER_TO }}
+          message: "${{ steps.tests.outputs.TEST }}"
         env:
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH }}
